@@ -30,54 +30,6 @@ def get_raw_data_2(b_rem_eol=True, b_rem_return=True, b_rem_d_spacing=True, b_se
 
     return data_raw
 
-# def get_raw_data():
-#     data_raw = pyperclip.paste()
-#
-#     if ("\n" in data_raw) or ("\r" in data_raw):
-#         # Remove Next line WS
-#         data_raw = data_raw.split("\n")
-#         # Remove Carriage Return WS
-#         for idx in range(0, len(data_raw)):
-#             data_raw[idx] = data_raw[idx].replace("\r", "")
-#         data_raw = " ".join(data_raw)
-#
-#     data_raw = data_raw.replace("  ", " ")
-#     data_raw = data_raw.replace("  ", " ")  #Filter double spacing twice
-#     return data_raw
-
-
-######## LINK FUNCTIONS ##########
-
-
-####### MAIN FUNCTIONS #######
-# def parse_address(data):
-#     data = data.split(", ")
-#     data = set_lower(data)
-#     # print("\n\n\nSTART: ", data)
-#
-#     # Splits US
-#     data = remove_country(data)
-#     # print("\nAFTER US:", data)
-#
-#     # Splits State and ZIP
-#     data, STATE, ZIP = get_state_zip(data)
-#     # print("\nAFTER STATE&ZIP", data)
-#     # print(STATE)
-#     # print(ZIP)
-#
-#     # Splits City and Address
-#     data, CITY, ADDRESS = get_city_address(data)
-#     # print("\nAFTER CITY&ADDR", data)
-#     # print(CITY)
-#     # print(ADDRESS)
-#
-#     data = [set_upper(ADDRESS)] + [set_upper(CITY)] + [STATE] + [ZIP]
-#     data = '\t'.join(data).replace("  ","")
-#     # print("END:", data)
-#
-#     return data
-
-
 ########## INITIALIZING DATA ##########
 def get_cities():
     cities_raw = pyperclip.paste()
