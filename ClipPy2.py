@@ -7,7 +7,7 @@ import pyperclip
 from Notifiers.Audio_nofitier import audio_beep
 from Backend.Parser import identify_data, extract_data
 
-Version = "2.1.1.1"
+Version = "2.1.1.2"
 CLR_CMD = 'cls' if os.name == 'nt' else 'clear'
 
 
