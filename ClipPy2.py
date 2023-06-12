@@ -7,7 +7,7 @@ import pyperclip
 from Notifiers.Audio_nofitier import audio_beep
 from Backend.Parser import identify_data, extract_data
 
-Version = "2.1.1.2"
+Version = "2.1.1.3"
 CLR_CMD = 'cls' if os.name == 'nt' else 'clear'
 
 
@@ -124,7 +124,7 @@ if __name__ == '__main__':
 
                 # Identifies the type of data to parse, skips if invalid data
                 data_type = identify_data(data_raw)
-                data = extract_data(data, data_type)
+                data = extract_data(data, data_type, cities_list)
 
                 # Audio notifier whether data was valid and classified, or not.
                 if data is None:

@@ -44,21 +44,24 @@ def remove_country(data):
 
 def get_state_zip(data):
     State_list = ["ca", "CA", "California", "CALIFORNIA", "california"]
+    NOT_FOUND = -1
 
     #Double Spacing guard
     data = data.replace("  ", " ")
 
     for ref_item in State_list:
         idx_found = data.rfind(ref_item)
-        if idx_found != -1:
+        if idx_found != NOT_FOUND:
             # data = data.replace(ref_item, ' ')
             break
 
-    if idx_found > -1:
-        temp  = data[idx_found:]
+    if idx_found > NOT_FOUND:
+        temp = data[idx_found:]
+
         ZIP = ""
         for content in temp:
             ZIP += content if content.isnumeric() else ""
+
         STATE = "CA"
         data  = data[:idx_found]
     else:
@@ -194,6 +197,7 @@ def parse_address(data, cities_list):
 
     # print("\n\n\nSTART: ", data)
 
+    # TODO: Recreate this into a class, so we can easily store data onto a class variable
     # Remove US
     data = remove_country(data)
     # print("\nAFTER US:", data)
