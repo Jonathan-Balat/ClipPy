@@ -12,7 +12,7 @@ CLR_CMD = 'cls' if os.name == 'nt' else 'clear'
 
 
 ########## GENERAL CLIPBOARD FUNCTION ##########
-def get_raw_data_2(b_rem_eol=True, b_rem_return=True, b_rem_d_spacing=True, b_set_lower=False):
+def get_raw_data(b_rem_eol=True, b_rem_return=True, b_rem_d_spacing=True, b_set_lower=False):
     data_raw = pyperclip.paste()
 
     if b_rem_eol:
@@ -29,6 +29,7 @@ def get_raw_data_2(b_rem_eol=True, b_rem_return=True, b_rem_d_spacing=True, b_se
         data_raw = data_raw.lower()
 
     return data_raw
+
 
 ########## INITIALIZING DATA ##########
 def get_cities():
@@ -97,7 +98,7 @@ if __name__ == '__main__':
 
     # STEP2: Get Raw data to parse
     print("\n-----[Main Program Starting]-----")
-    reference = get_raw_data_2()
+    reference = get_raw_data()
 
     while True:
         # Declarations & Reset
@@ -110,14 +111,14 @@ if __name__ == '__main__':
         # Catches:
         #  - Start of program reference
         #  - Last processed copied to clipboard
-        if reference == get_raw_data_2():
+        if reference == get_raw_data():
             sleep(0.5)  # This sleep pauses to avoid instantaneously check currently copied data
             pass
         else:
             try:
                 # Step 1: Gets copy of data from clipboard, shows onto display
-                data_raw  = get_raw_data_2()
-                reference = get_raw_data_2()
+                data_raw  = get_raw_data()
+                reference = get_raw_data()
 
                 os.system(CLR_CMD)
                 print("Data entered -> ", data_raw)
